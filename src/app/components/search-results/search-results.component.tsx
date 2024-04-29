@@ -1,7 +1,7 @@
 import { BookingResponse, Holiday } from "@/types/booking";
 import { Rooms } from "@/utils/composition.service";
 import SearchResultsFilterComponent from "../search-results-filter/search-results-filter.component";
-import styles from "./search-results.module.css";
+import SearchResultsListComponent from "./search-results-list.component";
 
 async function getData(params: {
   [key: string]: string | string[] | undefined;
@@ -84,54 +84,7 @@ export default async function SearchResultsComponent({
 
       <SearchResultsFilterComponent />
 
-      <ul className={styles.list}>
-        {listOfHolidays.map(
-          ({ hotel, pricePerPerson, totalPrice }: Holiday, index) => (
-            <li key={index}>
-              <article className={styles.listItem}>
-                <figure className={styles.resultFigure}>
-                  <img
-                    className={styles.resultImage}
-                    src={hotel.content.images[0].RESULTS_CAROUSEL.url}
-                    alt={hotel.name}
-                  />
-                </figure>
-                <div className={styles.contentWrapper}>
-                  <section>
-                    <h1 className={styles.hotelName}>{hotel.name}</h1>
-                    <span>{hotel.content.parentLocation}</span>
-                    {hotel.content.hotelFacilities.length !== 0 && (
-                      <div>
-                        <h4>Amenities</h4>
-                        <ul className={styles.facilitiesList}>
-                          {hotel.content.hotelFacilities
-                            .slice(0, 5)
-                            .map((facility: string, index) => (
-                              <li key={index}>{facility}</li>
-                            ))}
-                        </ul>
-                      </div>
-                    )}
-                  </section>
-                  <footer className={styles.contentFooter}>
-                    <div className={styles.priceWrapper}>
-                      <span className={styles.pricePp}>
-                        £{pricePerPerson}pp
-                      </span>
-                      <span className={styles.priceTotal}>
-                        £{totalPrice} total
-                      </span>
-                    </div>
-                    {hotel.content.starRating && (
-                      <span>{hotel.content.starRating} star facility</span>
-                    )}
-                  </footer>
-                </div>
-              </article>
-            </li>
-          )
-        )}
-      </ul>
+      <SearchResultsListComponent holidaysList={listOfHolidays} />
     </section>
   );
 }
