@@ -1,0 +1,27 @@
+.searchForm { 
+    display: grid;
+    grid-gap: 16px;
+    align-items: end;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    border: 1px solid rgb(179, 179, 179);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.formLabel { 
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+}
+
+.formInput { 
+    padding: 10px;
+    font-size: 14px;
+}
+
+.formButton { 
+    padding: 10px;
+    font-size: 14px;
+    max-width: 200px;
+}
