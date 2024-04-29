@@ -48,6 +48,6 @@ Thanks for your time, we look forward to hearing from you!
 
 `yarn cypress:open` to run the Cypress test. We have provided a passing test already for the composition service but would like to see some more.
 
-`yarn test` to run the Jest test.
+`yarn test` to run the Jest test. Due to having multiple issue when configuring the Jest test, this part left as an improvment point. Latest blocking topic is https://github.com/cypress-io/cypress/issues/22059#issuecomment-1148921141 
 
 Built on node `v20.1.0`.
