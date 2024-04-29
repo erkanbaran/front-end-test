@@ -1,11 +1,15 @@
 "use client";
 
 import { BookingRequest, PartyComposition } from "@/types/booking";
-import { SearchKeys } from "@/types/search";
 import { DateTime } from "luxon";
 import { DATE_FORMATS } from "@/utils/constants";
 import { useSearchParams, useRouter } from "next/navigation";
 import styles from "./search-bar.module.css";
+
+export enum SearchKeys {
+  Location = "location",
+  DepartureDate = "departureDate",
+}
 
 export default function SearchBarComponent() {
   const searchParams = useSearchParams();
